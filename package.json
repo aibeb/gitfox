@@ -10,7 +10,6 @@
     "test": "npm test"
   },
   "dependencies": {
-    "async": "^2.1.4",
     "debug": "^2.6.0"
   },
   "repository": {
