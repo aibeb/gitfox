@@ -1,6 +1,6 @@
 {
   "name": "gitfox",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "git commant all subdirectories",
   "bin": {
     "gitfox": "index.js"
