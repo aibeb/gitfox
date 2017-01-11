@@ -1,7 +1,7 @@
 {
   "name": "gitfox",
   "version": "1.0.0",
-  "description": "git pull all subdirectories",
+  "description": "git commant all subdirectories",
   "bin": {
     "gitfox": "index.js"
   },
@@ -15,9 +15,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eqfox/git-pull.git"
+    "url": "git+https://github.com/eqfox/gitfox.git"
   },
   "keywords": [
+    "gitfox",
     "git",
     "pull",
     "git-pull"
@@ -25,7 +26,7 @@
   "author": "eqfox",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/eqfox/git-pull/issues"
+    "url": "https://github.com/eqfox/gitfox/issues"
   },
-  "homepage": "https://github.com/eqfox/git-pull#readme"
+  "homepage": "https://github.com/eqfox/gitfox#readme"
 }
