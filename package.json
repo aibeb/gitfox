@@ -1,6 +1,6 @@
 {
   "name": "gitfox",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "git execute on parent directories",
   "bin": {
     "gitfox": "index.js"
