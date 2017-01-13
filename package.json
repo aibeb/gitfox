@@ -1,9 +1,9 @@
 {
   "name": "gitfox",
   "version": "1.0.4",
-  "description": "git execute on parent directories",
+  "description": "git execute command on all subdirectories",
   "bin": {
-    "gitfox": "index.js"
+    "g": "index.js"
   },
   "main": "index.js",
   "scripts": {
@@ -18,9 +18,7 @@
   },
   "keywords": [
     "gitfox",
-    "git",
-    "pull",
-    "git-pull"
+    "git"
   ],
   "author": "eqfox",
   "license": "MIT",
