@@ -1,6 +1,6 @@
 {
   "name": "gitfox",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "git execute command on all subdirectories",
   "bin": {
     "g": "index.js"
