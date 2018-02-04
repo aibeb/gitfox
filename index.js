@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 const fs = require('fs');
-const path = require('path');
-const { spawn } = require('child_process');
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
 
 const argv = process.argv.slice(2);
 
-console.log('parent directory is', process.cwd(), 'command is git', ...argv);
+console.log(`parent directory is \x1b[32m${process.cwd()}\x1b[39m command is \x1b[32mgit ${argv.join(' ')}\x1b[39m`);
 
 if (argv.length < 1) {
   console.log('Usage: g <command>');
@@ -13,26 +13,17 @@ if (argv.length < 1) {
 }
 
 // 遍历当前文件夹 excluding '.' and '..'
-const files = fs.readdirSync(process.cwd());
-
-files.forEach((file) => {
-  console.log(`\x1b[32m${file}\x1b[39m`);
+fs.readdirSync(process.cwd()).map(async (file) => {
   const stats = fs.statSync(file);
-  if (stats.isDirectory()) {
-    if (fs.readdirSync(file).indexOf('.git') === -1) {
-      console.log('Not a GIT repository');
-    } else {
-      //
-
+  if (stats.isDirectory() && fs.readdirSync(file).indexOf('.git') !== -1) {
+    const { stdout, stderr } = await exec(`git ${argv.join(' ')}`, { cwd: file });
+    console.log(`\x1b[32m${file}\x1b[39m`);
+    if (stderr) {
+      console.error(`\x1b[31m${error || stderr}`);
     }
-    const command = spawn('git', argv, { stdio: 'inherit' });
-    // command.stdout.pipe(process.stdout);
-    //
-    // command.stderr.pipe(process.stderr);
-    command.on('close', (code) => {
-      console.log(code);
-    });
+    console.log(stdout);
   } else {
+    console.log(`\x1b[32m${file}\x1b[39m`);
     console.log('Not a GIT repository');
   }
 });
